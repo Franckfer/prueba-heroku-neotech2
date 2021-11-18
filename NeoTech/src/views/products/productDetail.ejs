@@ -1,0 +1,66 @@
+
+<head>
+  <%- include('../partials/head.ejs') %>
+</head>
+
+    <body class="product__body">
+
+       
+
+           <%- include('../partials/header.ejs') %>
+     
+        
+<div class="arrow__container">
+                <a href="/producto/lista-de-productos">
+                    <i id="arrow" class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+
+        <main class="product__main">
+
+            
+            <section class="product__section">
+                <img src="/images/imgs-product/<%- productID.images %>" alt="auricular">
+                <div class="btn__detail">
+                    <a href="" class="a__detail">COMPRAR</a>
+                </div>
+            </section>
+
+            <article class="container-r">
+                <div class="product__detail__title">
+                    <h2>
+                        <%= productID.product_name %>
+                    </h2>
+                </div>
+                <div class="detail__container">
+                    <ul class="detail">
+                        <li> Precio : $ <%= productID.price %>
+                        </li>
+                        <li>Color : <%= productID.color %>
+                        </li>
+                        <li>Categoria : <%= productID.category.category_name %>
+                        </li>
+                        <li>Marca : <%= productID.brand.brand_name %>
+                        </li>
+                    </ul>
+
+                    <div class="description">
+                        <h4>
+                            Descripción:
+                        </h4>
+                        <p>
+                            <%= productID.description %>
+                        </p>
+
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- <i class="fal fa-times"></i> -->
+
+        </main>
+        <%- include("../partials/footer") %>
+    </body>
+
+    </html>

@@ -1,0 +1,58 @@
+<!-- HEAD -->
+<%- include('../partials/head.ejs') %>
+
+    <body class="body__register">
+
+        
+
+        <%- include('../partials/nav.ejs') %>
+
+            <!-- Registro -->
+            <div id="registro">
+                <h1>Compra</h1>
+                <form class="register__form" action="/" method="POST">
+                    <!-- fatlta poner el action! -->
+                    <nav class="register__container">
+                        <!-- CARD NUMBER -->
+                        <input class="email" type="number" id="number" name="number" placeholder="Número de targeta">
+                        <small class="text-error" id="numberErr"></small>
+                        <!-- CARD CODE -->
+                        <input class="email" type="number" id="code" name="code" placeholder="Código de seguridad">
+                        <small class="text-error" id="codeErr"></small>
+                        <!-- LAST DATE YEAR -->
+                        <input class="email" type="number" id="vencimientoAño" name="vencimientoAño" placeholder="año de vencimiento Ej: 2028">
+                        <small class="text-error" id="vencimientoAñoErr"></small>
+                        <!-- LAST DATE MONTH -->
+                        <input class="email" type="number" id="vencimientoMes" name="vencimientoMes" placeholder="mes de vencimiento Ej: 02 04 05">
+                        <small class="text-error" id="vencimientoMesErr"></small>
+                        <!-- NAME -->
+                        <input class="email" type="text" id="titular" name="titular" placeholder="Nombre del titular">
+                        <small class="text-error" id="titularErr"></small>
+                        <!-- BUTTON BUY -->
+                        <!-- <button class="button-register" >COMPRAR</button> -->
+                        <a href="/" id="buy" class="button-register">COMPRAR</a>
+                    </nav>
+                </form>
+                <!-- MORE -->
+                <p class="log_in">comprar mas? <a class="log_in_link" href="/producto/lista-de-productos"> ver productos</a></p>
+            </div>
+
+            <div class="networks">
+            </div>
+
+        <%- include('../partials/footer.ejs') %>
+        
+        <%- include('../partials/scripts.ejs') %>
+
+        <script src="/js/validationBuy.js"></script>
+    </body>
+    
+    </html>
+
+
+    <!-- email -->
+<!-- <label for="email"></label>
+<input class="email" type="email" name="email" id="email" placeholder="Ingrese su email">
+<% if (locals.errors && errors.email) { %>
+    <small class="text-error"><%= errors.email.msg %></small>
+<% } %> -->

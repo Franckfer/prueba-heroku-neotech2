@@ -1,0 +1,118 @@
+
+<head>
+    <%- include("../partials/head-admin") -%>
+    <link rel="stylesheet" href="../../../styles/admin-add-product.css">
+    <!-- Validation Front Admin -->
+    <script src="/js/validationAddProducts.js"></script>
+
+</head>
+
+<body class="admin__add__product">
+
+    <%- include("../admin/admi-nav") -%>
+
+        <div id="container-admin">
+
+            <%- include("../partials/aside-admin") -%>
+
+                <main id="content">
+
+                    <p id="admin-welcome">
+                        Agregar productos
+                    </p>
+
+                    <div id="container-form">
+
+                        <form class="productsForm" id="form-add" action="/administrador/agregar-producto" enctype="multipart/form-data" method="POST">
+
+                            <div class="img-container" id="img-preview"></div>
+
+                            <div class="input-file">
+                                <div class="btn__update__image">
+                                    <p class="userUpdate_subtitle">Agregar imagen del Producto</p>
+                                    <input class="inputFile" type="file" name="product-image" multiple>
+                                </div>
+                            </div>
+                            <span class="inputFileErrors"></span>
+
+                            <div id="marcas">
+
+                                <select class="selectBrand" name="brand" id="categorias-select" required> 
+                                    <option value="0" selected disabled>Marca...</option>
+                                    <% marcas.forEach(brand=> { %>
+                                        <option value="<%= brand.id %>" >
+                                            <%= brand.brand_name %>
+                                        </option>
+                                    <% }) %>
+                                </select>                             
+                                
+                            </div> 
+                            <span class="selectBrandErrors"></span>
+                            
+                            <div id="categorias">
+                                
+                                <select class="selectCategory" name="category" id="categorias-select" required> 
+                                    <option value="0" selected disabled>Categoría...</option>
+                                    <% categorias.forEach(category=> { %>
+                                        <option value="<%= category.id %>" >
+                                            <%= category.category_name %>
+                                        </option>
+                                    <% }) %>
+                                </select>
+                                    
+                            </div>
+                            <span class="selectCategoryErrors"></span>
+                                
+                                
+                            <input type="text" name="product" class="product_name" value="<%= locals.old && old.product %>" placeholder="Producto">
+                            <span class="productNameErrors"></span>
+                            <% if (locals.errors && errors.product) { %>
+                                <small class="text-error">
+                                    <%= errors.product.msg %>
+                                </small>
+                            <% } %>
+
+
+                            <input type="number" name="price" class="price" value="<%= locals.old && old.price %>" placeholder="Precio">
+                            <span class="priceErrors"></span>
+                            <% if (locals.errors && errors.price) { %>
+                                <small class="text-error">
+                                    <%= errors.price.msg %>
+                                </small>
+                            <% } %>
+
+
+                            <input type="text" name="color" class="color" value="<%= locals.old && old.color %>" placeholder="Color/es">
+                            <span class="colorErrors"></span>
+                            <% if (locals.errors && errors.color) { %>
+                                <small class="text-error">
+                                    <%= errors.color.msg %>
+                                </small>
+                            <% } %>
+
+
+                            <input type="text" name="description" class="description" value="<%= locals.old && old.description %>" placeholder="Descripción">
+                            <span class="descriptionErrors"></span>
+                            <% if (locals.errors && errors.description) { %>
+                                <small class="text-error">
+                                    <%= errors.description.msg %>
+                                </small>
+                            <% } %>
+
+                            <span id="submitErrors"></span>
+                            <input class="submit" type="submit" value="Añadir">
+                        </form>
+
+                    </div>
+
+                </main>
+
+        </div>
+
+        <%- include("../partials/admin-links") -%>
+
+        <%- include('../partials/scripts.ejs') %>
+
+</body>
+
+</html>
